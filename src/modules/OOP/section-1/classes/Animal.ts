@@ -21,7 +21,7 @@
  + sleep(time)
  */
 
-class Animal {
+abstract class Animal {
 	name: string;
 	gender: string;
 	age: number;

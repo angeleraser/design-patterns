@@ -18,6 +18,13 @@ class Cat extends Animal {
 	public meow() {
 		console.log(`Cat ${this.name} is meowing!`);
 	}
+
+	public selfClean() {
+		this.isNasty = false;
+		console.log(`${this.name} is cleaning`);
+
+		return this.isNasty;
+	}
 }
 
 export { Cat };
