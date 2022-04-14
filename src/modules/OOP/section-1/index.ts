@@ -1,8 +1,8 @@
-import { ModuleLogger } from '../../../utils/Logger';
+import { ClassModule, ModuleLogger } from '../../../utils/Logger';
 import { Cat } from './classes/Cat';
 import { Dog } from './classes/Dog';
 
-export class OOPModuleSectionOne implements ModuleLogger {
+class OOPModuleSectionOne implements ModuleLogger {
 	execute() {
 		const myCat = new Cat({
 			name: 'Charles',
@@ -28,3 +28,8 @@ export class OOPModuleSectionOne implements ModuleLogger {
 		myDog.callBestFriend();
 	}
 }
+
+export const SectionOneClassModule = new ClassModule(
+	'OOP Module Section 1',
+	OOPModuleSectionOne,
+);

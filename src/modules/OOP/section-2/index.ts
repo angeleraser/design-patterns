@@ -1,4 +1,4 @@
-import { ModuleLogger } from '../../../utils/Logger';
+import { ClassModule, ModuleLogger } from '../../../utils/Logger';
 import { AirportAirplane, SimulatorAirplane } from './abstraction/Airplane';
 import {
 	Airplane,
@@ -9,7 +9,7 @@ import {
 import { Cat } from './inhiterance/Animals';
 import { WildAnimal, WildCat, WildDog } from './polimorfism/Animals';
 
-export class OOPModuleSectionTwo implements ModuleLogger {
+class OOPModuleSectionTwo implements ModuleLogger {
 	execute() {
 		// Abstraction
 		const simulatorAirplane: SimulatorAirplane = {
@@ -65,3 +65,8 @@ export class OOPModuleSectionTwo implements ModuleLogger {
 		});
 	}
 }
+
+export const SectionTwoClassModule = new ClassModule(
+	'OOP Module Section 2',
+	OOPModuleSectionTwo,
+);
