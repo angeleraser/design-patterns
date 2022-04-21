@@ -11,7 +11,7 @@ interface AdvancedCourse {
 }
 
 abstract class Professor {
-	readonly student: Student; // asociation it's always accesible for professor methods
+	readonly student: Student; // asociation, it's always accesible for professor methods
 
 	constructor(student: Student) {
 		this.student = student;

@@ -1,13 +1,19 @@
-import { ClassModule, ModuleLogger } from '../../../utils/Logger';
 import { BestProfessor, Course } from './asociation';
+import { ClassModule, ModuleLogger } from '../../../utils/Logger';
 import { HighSchoolStudent, SampleProfessor, Student } from './dependency';
+import { Professor } from './aggregation';
+import { University } from './composition';
 
 class OOPModuleSectionThree implements ModuleLogger {
 	execute() {
 		// -------- Dependency
 		const students: Array<Student> = [{ learn() {} }];
 		const highSchoolStudents: Array<HighSchoolStudent> = [
-			{ learnWithBook(book) {} },
+			{
+				learnWithBook(book) {
+					console.log(book);
+				},
+			},
 		];
 
 		// Wrong, depends on HighSchoolStudent concret class
@@ -30,6 +36,36 @@ class OOPModuleSectionThree implements ModuleLogger {
 		};
 
 		prof.teach(course);
+
+		// Aggregation
+		const professor: Professor = {
+			name: 'Mike Lance',
+			students: [
+				{
+					remember: function (knowledge) {
+						console.log(knowledge);
+					},
+				},
+			],
+			teach: function (course: Course): void {
+				this.students.forEach((student) => {
+					student.remember(course);
+				});
+			},
+		};
+
+		professor.teach(course);
+
+		// Composition
+		const MyUniversity: University = {
+			departments: [
+				{
+					professors: [professor],
+				},
+			],
+		};
+
+		console.log({ university: MyUniversity });
 	}
 }
 
